@@ -488,3 +488,229 @@
 [info] 
 [info] Project Console: https://console.firebase.google.com/project/aquafixers-96f89/overview
 [info] Hosting URL: https://aquafixers-96f89.web.app
+[debug] [2025-08-25T13:44:01.943Z] ----------------------------------------------------------------------
+[debug] [2025-08-25T13:44:01.949Z] Command:       /usr/local/bin/firebase /Users/abrahamting/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2025-08-25T13:44:01.950Z] CLI Version:   14.14.0
+[debug] [2025-08-25T13:44:01.950Z] Platform:      darwin
+[debug] [2025-08-25T13:44:01.950Z] Node Version:  v20.18.2
+[debug] [2025-08-25T13:44:01.950Z] Time:          Mon Aug 25 2025 21:44:01 GMT+0800 (Malaysia Time)
+[debug] [2025-08-25T13:44:01.951Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-08-25T13:44:02.262Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-25T13:44:02.265Z] > authorizing via signed-in user (abr.ting@gmail.com)
+[debug] [2025-08-25T13:44:02.266Z] [iam] checking project aquafixers-96f89 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-08-25T13:44:02.271Z] Checked if tokens are valid: false, expires at: 1756126807851
+[debug] [2025-08-25T13:44:02.273Z] Checked if tokens are valid: false, expires at: 1756126807851
+[debug] [2025-08-25T13:44:02.275Z] > refreshing access token with scopes: []
+[debug] [2025-08-25T13:44:02.279Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-08-25T13:44:02.280Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-25T13:44:02.724Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-08-25T13:44:02.725Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-25T13:44:02.741Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/aquafixers-96f89:testIamPermissions [none]
+[debug] [2025-08-25T13:44:02.742Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/aquafixers-96f89:testIamPermissions x-goog-quota-user=projects/aquafixers-96f89
+[debug] [2025-08-25T13:44:02.743Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/aquafixers-96f89:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-08-25T13:44:04.167Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/aquafixers-96f89:testIamPermissions 200
+[debug] [2025-08-25T13:44:04.168Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/aquafixers-96f89:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-08-25T13:44:04.170Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:04.171Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:04.172Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/aquafixers-96f89 [none]
+[debug] [2025-08-25T13:44:04.975Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/aquafixers-96f89 200
+[debug] [2025-08-25T13:44:04.977Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/aquafixers-96f89 {"projectId":"aquafixers-96f89","projectNumber":"463385848230","displayName":"AquaFixers","name":"projects/aquafixers-96f89","resources":{"hostingSite":"aquafixers-96f89","realtimeDatabaseInstance":"aquafixers-96f89-default-rtdb"},"state":"ACTIVE","etag":"1_5cfc3b3d-bba1-4118-9eb4-21a5e2054246"}
+[info] 
+[info] === Deploying to 'aquafixers-96f89'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-08-25T13:44:04.990Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:04.990Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:04.991Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/versions [none]
+[debug] [2025-08-25T13:44:04.991Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-08-25T13:44:06.735Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/versions 200
+[debug] [2025-08-25T13:44:06.736Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/versions {"name":"projects/463385848230/sites/aquafixers-96f89/versions/13909030d55ae045","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[aquafixers-96f89]: beginning deploy... 
+[info] i  hosting[aquafixers-96f89]: found 56 files in . 
+[debug] [2025-08-25T13:44:06.806Z] [hosting] uploading with 200 concurrency
+[debug] [2025-08-25T13:44:06.847Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:06.847Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:06.849Z] [hosting] hash cache [] stored for 56 files
+[debug] [2025-08-25T13:44:06.849Z] [hosting][hash queue][FINAL] {"max":39,"min":0,"avg":12.767857142857142,"active":0,"complete":56,"success":56,"errored":0,"retried":0,"total":56,"elapsed":42}
+[debug] [2025-08-25T13:44:06.850Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/463385848230/sites/aquafixers-96f89/versions/13909030d55ae045:populateFiles [none]
+[debug] [2025-08-25T13:44:06.850Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/463385848230/sites/aquafixers-96f89/versions/13909030d55ae045:populateFiles {"files":{"/styles.css":"12777b96dbfb391b83ecd9d4ea8f22cbf0fc4479d281eda9504bf49891b075a2","/index.html":"f89a12054a7d776d5bbecf04275ffefb8dd3756d85226296969c884189acedf6","/favicon.svg":"f9bfdb1599ad20415ac7393d85848ac2c43e07012843770776d7813f0d9de518","/.git/description":"3cdc7b6a29de07f63b76d16b9911d93468000346945f759d4f6456660b5c113b","/.git/objects/f7/c63ce8ab1fca286c990b3b310ab5d3904ad2db":"8c2b2917a579e5e163156b16684c75131f641779106622f3bf590e93bdbd8964","/.git/objects/e8/9d8f30f98427d11a7d3005561a8f4cf1b749ee":"6a5c08f7efc6dec8feb9b43ef5d8e20e3256b38fabb265d9e2b5e2c05f025d30","/.git/objects/d3/b43c64f10c0a99f1acd5dc0eca1b4cf185e6b0":"8a8434ae1809f4dd72a910fbc20ab5f24b657005be181fec5baa47cfc901209d","/.git/objects/cc/3272ae8e9eda4de163f6933617d1901e08974e":"7803180eff803b92e4b1d524215f11bbb21882a0aa576386aefde53b7c175e11","/.git/objects/c9/3257ff2bcc327b27a280956327e82e62055fd5":"47391768e7122dfed238ad791716c862974a657f02b98813887b3430fed87a2f","/.git/objects/b7/4901ea933131adcc7b186dd3c8dae81c39d1ee":"7deee8898d9468b76b92632038d21d96d3637bf004a2c77bd249c42141631a0a","/.git/objects/99/6965ee23b94d5491b4e64cd45b4360b572e357":"b3748298133663a86d211ff9453c063bc441385043c2347a02f79011e95a49bc","/.git/objects/6d/d38bfdf2f45dc06ba285d608419a87115afcc2":"c33d468f29a63870a61f621c46649ad45bd5bc72c31162a72bcdbd549f67350d","/.git/objects/6c/c34b666ca92ee57e64461c6c7461f5c7865e91":"28e22a526edb1e98f35b96cd5d7dddc359ccdbdce96c99128c008540b71b04b7","/.git/objects/69/0f6823bcc05237e08edd86f913bec016eea898":"918c8a6b8e9f0ff5280b92f3e2e79fff3d3d12fe67e5aab29e40166d8dac516e","/.git/objects/64/9f443fa87d586cbb119ea452fa5894c519f7e7":"349f11dcb97bec25a802ea37f9cf185a0c72cb2692526d4d44af925a32634077","/.git/objects/24/47b6008d2321b19162a153f9b2a7692f42078a":"3856c907663c5186a1f06098f9a9a147dbd383a8478588e997ca08ff4904076d","/.git/objects/20/4ec672e8df95ecf86832d308671392b591480b":"8e92878634a4487d1484048aa3d3e1d523ea4d8fb391f0ee1829f0c1f805f6cd","/.git/info/exclude":"a362e375cc3330f10d115cfeb0f90a325219d80a764d57e2c4873f78d1d0b4f5","/.git/hooks/update.sample":"2b0a4f42fa30a128b46ad80e89c1f73b89d58b8abb9e92aee1c35625baccb584","/.git/hooks/push-to-checkout.sample":"ede5681c63b8ad6d42fcae835820651b7dfa044bc14fa0da0b7ce9bc54bd7f18","/.git/hooks/prepare-commit-msg.sample":"9b3c070fc0608b04e690a7dd7c17419759fbed06932985aed32e306418e86ed2","/.git/hooks/pre-receive.sample":"b703160503002ea73605a1b54a8183989f66e6530c125fbd1595339048ebd856","/.git/hooks/pre-rebase.sample":"b3f2e1f9de52a3895458d3a6f5e5a1ad139f688bcbc358d6e9d31888f7e84829","/.git/hooks/pre-push.sample":"8109b3dc5744bb0e115ee8e53ff7a7617ce4396aaa646538e068a6f09338447d","/.git/hooks/pre-merge-commit.sample":"0479d217dc6329cbba403c8254db7b9ee6c028f62f55db3641b0690373679b25","/.git/hooks/pre-commit.sample":"ed086bc79b04304e2d3f82ce9bf7d66a9fc1bde08016f694501e8e0d38469505","/.git/hooks/pre-applypatch.sample":"defbdbcdbf096439878474d3b12ed4b5a63dec7400ecde5f4b60a496391d64d0","/.git/hooks/post-update.sample":"3d5b0c2026371e835c791d4b25099e98b1d507971ed6bfb639ae56a321309aeb","/.git/hooks/fsmonitor-watchman.sample":"d366d691e33458260d77c44be36050a3faf0aa12760955cc8ca85ee88389c400","/.git/hooks/commit-msg.sample":"4df962ba3955944bec38b211351c73f083d7b0e5360a5d3d76a49548e7314f9e","/.git/hooks/applypatch-msg.sample":"91b94f5feaf0e4d2e6e7808a9188384a4300adf024fa24c48547ee87c64d6558","/.git/FETCH_HEAD":"f1b651238a58fe290baec6c5e32f3bdb1943dd2bd582f02569231f7a757c7837","/.git/config":"141b68e930319abd83d1e6f6767aba92a3253047e1c99be7066772bfdf86f5f0","/AquaFixers.ino":"c3e7967c3b672ec44cd0498095fb17af824c17ecb9439e098224775906d650cd","/.git/index":"766c5b033fb30d7b2d9156614377ff761c797f1db31cdc422575df1bf3d51bc6","/.git/HEAD":"a39dc51e21d1523cdef2091e7c7ab30a33ad42a7cd5da1f45139746e5c24b667","/.git/COMMIT_EDITMSG":"22bb5d4730397e915df7a19ebe98e01e5cdfd8f152b7a3a1cba3f80ad0c447a1","/.git/refs/heads/main":"3be1061048ee65e270bb1508877aa050877f38e16233b5e7b09c3fbab8344e35","/.git/objects/d5/f9d05467e49f55c024d59a99eec6768c81e1f6":"f317e3349681482ea08c2921b6fdd14a471f3eb68d45b7bd4f26f92bb7d67bf0","/.git/objects/c4/35fc7c6be492fa79e3349bbd5634b418a8473d":"e169529579886263389f26302127a7120091be06f3085d61ebbc3a69cc3999ab","/.git/refs/remotes/origin/main":"3be1061048ee65e270bb1508877aa050877f38e16233b5e7b09c3fbab8344e35","/.git/objects/9e/a18e8e9a4d370b525550a440957c87edf0e44b":"190e41044001474b960156b1c19ea0e4cd1b9637588bc319627c8fed23a3f036","/.git/objects/7d/278e45e9eab884cb5f9f8675bf8bf07c59e263":"96a1fa5c4c85ab59014a3202aa15c6e146d1410be82ae0214cf4558e7711fbae","/.git/objects/6a/b5d60930e279fc89d52618d03f63dd9a01e3bd":"cbcf3198b8260d2b5f09033680ff7af7f51400a502a64c2bcba2fb9123370378","/.git/objects/52/cf5aa11073e066d11b019fd03ef7c219d33ad6":"4c4073e85c08ece6d5da97eb5e70e8c67a7cd1989b3da09addbc3ea3f7d48756","/.git/objects/42/cc1c171715d98a00e1d8ce340459e98095fca0":"6fb19659ab831aefd26d56bfc66c2ab6cbab796f8e9752a32bd622cacc65a633","/.git/objects/48/587cc80e110d00ccce6236c71b138ccfaf8935":"6a03a16fba3009355bf595f29f4f1015a2788ce28fe0732da83aea50b6fd4c46","/.git/objects/5c/0d38c14e12a78079cb573e63dafb875649bba5":"55abb3fd9b388bafd2fbd64ac885b8228daa081bacae61d7c8506b58c17db723","/.git/objects/25/0f93e74431341342a27b161bb422885b483acd":"c3f4a766604ff7b2ffcb1c3c679363fc2c84f5101fe92abf190f37849385ed8f","/.git/logs/refs/remotes/origin/main":"fa25859d1fd616200575261a7fbda069e5cfbece1000caf3e142f8008e5202a4","/.git/logs/HEAD":"fa10f994b8416838ed30a4777807d823af4570dbe0c14955a1a56ed97add5d57","/.git/logs/refs/heads/main":"a597a6fd6efdb1bed119de83ebb9c9c465fff499dad92e7798c44d43c09d83fb","/.git/objects/14/96be404702ebbac9dbaa5b9908eb0153d90681":"79682578abd0b24244cb34ca2316b9a7c3507f7dafe301642bb5e2422ec02590","/.git/objects/c3/3103ff4143b9218aafe4694440c0c94f8d1fa3":"fada630e16a8e8ba919a29ea8451a4c09801361e8efd8061e164f24cd620a7de","/.git/objects/3b/74b36d6895d726e0b0278f8b119bef189af56b":"eb554afeffede25e58efaf9ab67d6f3bb7f4e0f541cee24213e549bff0d57b1f","/script.js":"812ccfccfb6e45fd1a0b76c39b015b1fc24744f73a3205c4396b4682f66b09ef"}}
+[debug] [2025-08-25T13:44:07.556Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/463385848230/sites/aquafixers-96f89/versions/13909030d55ae045:populateFiles 200
+[debug] [2025-08-25T13:44:07.559Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/463385848230/sites/aquafixers-96f89/versions/13909030d55ae045:populateFiles {"uploadRequiredHashes":["4c4073e85c08ece6d5da97eb5e70e8c67a7cd1989b3da09addbc3ea3f7d48756","cbcf3198b8260d2b5f09033680ff7af7f51400a502a64c2bcba2fb9123370378","141b68e930319abd83d1e6f6767aba92a3253047e1c99be7066772bfdf86f5f0","3be1061048ee65e270bb1508877aa050877f38e16233b5e7b09c3fbab8344e35","812ccfccfb6e45fd1a0b76c39b015b1fc24744f73a3205c4396b4682f66b09ef","fa25859d1fd616200575261a7fbda069e5cfbece1000caf3e142f8008e5202a4","e169529579886263389f26302127a7120091be06f3085d61ebbc3a69cc3999ab","f317e3349681482ea08c2921b6fdd14a471f3eb68d45b7bd4f26f92bb7d67bf0","eb554afeffede25e58efaf9ab67d6f3bb7f4e0f541cee24213e549bff0d57b1f","c3f4a766604ff7b2ffcb1c3c679363fc2c84f5101fe92abf190f37849385ed8f","79682578abd0b24244cb34ca2316b9a7c3507f7dafe301642bb5e2422ec02590","c3e7967c3b672ec44cd0498095fb17af824c17ecb9439e098224775906d650cd","190e41044001474b960156b1c19ea0e4cd1b9637588bc319627c8fed23a3f036","6a03a16fba3009355bf595f29f4f1015a2788ce28fe0732da83aea50b6fd4c46","55abb3fd9b388bafd2fbd64ac885b8228daa081bacae61d7c8506b58c17db723","766c5b033fb30d7b2d9156614377ff761c797f1db31cdc422575df1bf3d51bc6","6fb19659ab831aefd26d56bfc66c2ab6cbab796f8e9752a32bd622cacc65a633","96a1fa5c4c85ab59014a3202aa15c6e146d1410be82ae0214cf4558e7711fbae","fa10f994b8416838ed30a4777807d823af4570dbe0c14955a1a56ed97add5d57","a597a6fd6efdb1bed119de83ebb9c9c465fff499dad92e7798c44d43c09d83fb","fada630e16a8e8ba919a29ea8451a4c09801361e8efd8061e164f24cd620a7de"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files"}
+[debug] [2025-08-25T13:44:07.562Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.562Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.562Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.563Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.564Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.564Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.564Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.564Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.564Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.564Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.565Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.565Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.565Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.565Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.565Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.565Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.565Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.565Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.565Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.565Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.566Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.566Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.567Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.567Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.568Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.568Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.568Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.568Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.568Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.568Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.569Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.569Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.569Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.569Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.569Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.569Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.570Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.570Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.570Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.570Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.570Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.570Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:07.570Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/4c4073e85c08ece6d5da97eb5e70e8c67a7cd1989b3da09addbc3ea3f7d48756 [none]
+[debug] [2025-08-25T13:44:07.570Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/4c4073e85c08ece6d5da97eb5e70e8c67a7cd1989b3da09addbc3ea3f7d48756 [stream]
+[debug] [2025-08-25T13:44:07.572Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/cbcf3198b8260d2b5f09033680ff7af7f51400a502a64c2bcba2fb9123370378 [none]
+[debug] [2025-08-25T13:44:07.574Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/cbcf3198b8260d2b5f09033680ff7af7f51400a502a64c2bcba2fb9123370378 [stream]
+[debug] [2025-08-25T13:44:07.577Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/141b68e930319abd83d1e6f6767aba92a3253047e1c99be7066772bfdf86f5f0 [none]
+[debug] [2025-08-25T13:44:07.577Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/141b68e930319abd83d1e6f6767aba92a3253047e1c99be7066772bfdf86f5f0 [stream]
+[debug] [2025-08-25T13:44:07.578Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/3be1061048ee65e270bb1508877aa050877f38e16233b5e7b09c3fbab8344e35 [none]
+[debug] [2025-08-25T13:44:07.578Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/3be1061048ee65e270bb1508877aa050877f38e16233b5e7b09c3fbab8344e35 [stream]
+[debug] [2025-08-25T13:44:07.581Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/812ccfccfb6e45fd1a0b76c39b015b1fc24744f73a3205c4396b4682f66b09ef [none]
+[debug] [2025-08-25T13:44:07.581Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/812ccfccfb6e45fd1a0b76c39b015b1fc24744f73a3205c4396b4682f66b09ef [stream]
+[debug] [2025-08-25T13:44:07.584Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fa25859d1fd616200575261a7fbda069e5cfbece1000caf3e142f8008e5202a4 [none]
+[debug] [2025-08-25T13:44:07.584Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fa25859d1fd616200575261a7fbda069e5cfbece1000caf3e142f8008e5202a4 [stream]
+[debug] [2025-08-25T13:44:07.587Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/e169529579886263389f26302127a7120091be06f3085d61ebbc3a69cc3999ab [none]
+[debug] [2025-08-25T13:44:07.587Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/e169529579886263389f26302127a7120091be06f3085d61ebbc3a69cc3999ab [stream]
+[debug] [2025-08-25T13:44:07.591Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/f317e3349681482ea08c2921b6fdd14a471f3eb68d45b7bd4f26f92bb7d67bf0 [none]
+[debug] [2025-08-25T13:44:07.592Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/f317e3349681482ea08c2921b6fdd14a471f3eb68d45b7bd4f26f92bb7d67bf0 [stream]
+[debug] [2025-08-25T13:44:07.595Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/eb554afeffede25e58efaf9ab67d6f3bb7f4e0f541cee24213e549bff0d57b1f [none]
+[debug] [2025-08-25T13:44:07.595Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/eb554afeffede25e58efaf9ab67d6f3bb7f4e0f541cee24213e549bff0d57b1f [stream]
+[debug] [2025-08-25T13:44:07.599Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/c3f4a766604ff7b2ffcb1c3c679363fc2c84f5101fe92abf190f37849385ed8f [none]
+[debug] [2025-08-25T13:44:07.599Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/c3f4a766604ff7b2ffcb1c3c679363fc2c84f5101fe92abf190f37849385ed8f [stream]
+[debug] [2025-08-25T13:44:07.601Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/79682578abd0b24244cb34ca2316b9a7c3507f7dafe301642bb5e2422ec02590 [none]
+[debug] [2025-08-25T13:44:07.601Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/79682578abd0b24244cb34ca2316b9a7c3507f7dafe301642bb5e2422ec02590 [stream]
+[debug] [2025-08-25T13:44:07.603Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/c3e7967c3b672ec44cd0498095fb17af824c17ecb9439e098224775906d650cd [none]
+[debug] [2025-08-25T13:44:07.603Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/c3e7967c3b672ec44cd0498095fb17af824c17ecb9439e098224775906d650cd [stream]
+[debug] [2025-08-25T13:44:07.605Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/190e41044001474b960156b1c19ea0e4cd1b9637588bc319627c8fed23a3f036 [none]
+[debug] [2025-08-25T13:44:07.605Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/190e41044001474b960156b1c19ea0e4cd1b9637588bc319627c8fed23a3f036 [stream]
+[debug] [2025-08-25T13:44:07.606Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/6a03a16fba3009355bf595f29f4f1015a2788ce28fe0732da83aea50b6fd4c46 [none]
+[debug] [2025-08-25T13:44:07.606Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/6a03a16fba3009355bf595f29f4f1015a2788ce28fe0732da83aea50b6fd4c46 [stream]
+[debug] [2025-08-25T13:44:07.609Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/55abb3fd9b388bafd2fbd64ac885b8228daa081bacae61d7c8506b58c17db723 [none]
+[debug] [2025-08-25T13:44:07.610Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/55abb3fd9b388bafd2fbd64ac885b8228daa081bacae61d7c8506b58c17db723 [stream]
+[debug] [2025-08-25T13:44:07.611Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/766c5b033fb30d7b2d9156614377ff761c797f1db31cdc422575df1bf3d51bc6 [none]
+[debug] [2025-08-25T13:44:07.611Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/766c5b033fb30d7b2d9156614377ff761c797f1db31cdc422575df1bf3d51bc6 [stream]
+[debug] [2025-08-25T13:44:07.612Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/6fb19659ab831aefd26d56bfc66c2ab6cbab796f8e9752a32bd622cacc65a633 [none]
+[debug] [2025-08-25T13:44:07.612Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/6fb19659ab831aefd26d56bfc66c2ab6cbab796f8e9752a32bd622cacc65a633 [stream]
+[debug] [2025-08-25T13:44:07.614Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/96a1fa5c4c85ab59014a3202aa15c6e146d1410be82ae0214cf4558e7711fbae [none]
+[debug] [2025-08-25T13:44:07.614Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/96a1fa5c4c85ab59014a3202aa15c6e146d1410be82ae0214cf4558e7711fbae [stream]
+[debug] [2025-08-25T13:44:07.616Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fa10f994b8416838ed30a4777807d823af4570dbe0c14955a1a56ed97add5d57 [none]
+[debug] [2025-08-25T13:44:07.616Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fa10f994b8416838ed30a4777807d823af4570dbe0c14955a1a56ed97add5d57 [stream]
+[debug] [2025-08-25T13:44:07.616Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/a597a6fd6efdb1bed119de83ebb9c9c465fff499dad92e7798c44d43c09d83fb [none]
+[debug] [2025-08-25T13:44:07.616Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/a597a6fd6efdb1bed119de83ebb9c9c465fff499dad92e7798c44d43c09d83fb [stream]
+[debug] [2025-08-25T13:44:07.617Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fada630e16a8e8ba919a29ea8451a4c09801361e8efd8061e164f24cd620a7de [none]
+[debug] [2025-08-25T13:44:07.617Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fada630e16a8e8ba919a29ea8451a4c09801361e8efd8061e164f24cd620a7de [stream]
+[debug] [2025-08-25T13:44:07.618Z] [hosting][populate queue][FINAL] {"max":723,"min":723,"avg":723,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":771}
+[debug] [2025-08-25T13:44:07.618Z] [hosting] uploads queued: 21
+[info] i  hosting: uploading new files [0/21] (0%) 
+[debug] [2025-08-25T13:44:08.882Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/79682578abd0b24244cb34ca2316b9a7c3507f7dafe301642bb5e2422ec02590 200
+[debug] [2025-08-25T13:44:08.883Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/79682578abd0b24244cb34ca2316b9a7c3507f7dafe301642bb5e2422ec02590 [stream]
+[debug] [2025-08-25T13:44:08.908Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/190e41044001474b960156b1c19ea0e4cd1b9637588bc319627c8fed23a3f036 200
+[debug] [2025-08-25T13:44:08.909Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/190e41044001474b960156b1c19ea0e4cd1b9637588bc319627c8fed23a3f036 [stream]
+[debug] [2025-08-25T13:44:08.957Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/4c4073e85c08ece6d5da97eb5e70e8c67a7cd1989b3da09addbc3ea3f7d48756 200
+[debug] [2025-08-25T13:44:08.959Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/4c4073e85c08ece6d5da97eb5e70e8c67a7cd1989b3da09addbc3ea3f7d48756 [stream]
+[debug] [2025-08-25T13:44:08.991Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fada630e16a8e8ba919a29ea8451a4c09801361e8efd8061e164f24cd620a7de 200
+[debug] [2025-08-25T13:44:08.992Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fada630e16a8e8ba919a29ea8451a4c09801361e8efd8061e164f24cd620a7de [stream]
+[debug] [2025-08-25T13:44:08.996Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/96a1fa5c4c85ab59014a3202aa15c6e146d1410be82ae0214cf4558e7711fbae 200
+[debug] [2025-08-25T13:44:08.997Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/96a1fa5c4c85ab59014a3202aa15c6e146d1410be82ae0214cf4558e7711fbae [stream]
+[debug] [2025-08-25T13:44:09.009Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fa10f994b8416838ed30a4777807d823af4570dbe0c14955a1a56ed97add5d57 200
+[debug] [2025-08-25T13:44:09.010Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fa10f994b8416838ed30a4777807d823af4570dbe0c14955a1a56ed97add5d57 [stream]
+[debug] [2025-08-25T13:44:09.041Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/eb554afeffede25e58efaf9ab67d6f3bb7f4e0f541cee24213e549bff0d57b1f 200
+[debug] [2025-08-25T13:44:09.042Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/eb554afeffede25e58efaf9ab67d6f3bb7f4e0f541cee24213e549bff0d57b1f [stream]
+[debug] [2025-08-25T13:44:09.077Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/cbcf3198b8260d2b5f09033680ff7af7f51400a502a64c2bcba2fb9123370378 200
+[debug] [2025-08-25T13:44:09.077Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/cbcf3198b8260d2b5f09033680ff7af7f51400a502a64c2bcba2fb9123370378 [stream]
+[debug] [2025-08-25T13:44:09.093Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/6fb19659ab831aefd26d56bfc66c2ab6cbab796f8e9752a32bd622cacc65a633 200
+[debug] [2025-08-25T13:44:09.093Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/6fb19659ab831aefd26d56bfc66c2ab6cbab796f8e9752a32bd622cacc65a633 [stream]
+[debug] [2025-08-25T13:44:09.097Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/f317e3349681482ea08c2921b6fdd14a471f3eb68d45b7bd4f26f92bb7d67bf0 200
+[debug] [2025-08-25T13:44:09.097Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/f317e3349681482ea08c2921b6fdd14a471f3eb68d45b7bd4f26f92bb7d67bf0 [stream]
+[debug] [2025-08-25T13:44:09.131Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/141b68e930319abd83d1e6f6767aba92a3253047e1c99be7066772bfdf86f5f0 200
+[debug] [2025-08-25T13:44:09.131Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/141b68e930319abd83d1e6f6767aba92a3253047e1c99be7066772bfdf86f5f0 [stream]
+[debug] [2025-08-25T13:44:09.166Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/812ccfccfb6e45fd1a0b76c39b015b1fc24744f73a3205c4396b4682f66b09ef 200
+[debug] [2025-08-25T13:44:09.167Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/812ccfccfb6e45fd1a0b76c39b015b1fc24744f73a3205c4396b4682f66b09ef [stream]
+[debug] [2025-08-25T13:44:09.186Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/55abb3fd9b388bafd2fbd64ac885b8228daa081bacae61d7c8506b58c17db723 200
+[debug] [2025-08-25T13:44:09.186Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/55abb3fd9b388bafd2fbd64ac885b8228daa081bacae61d7c8506b58c17db723 [stream]
+[debug] [2025-08-25T13:44:09.195Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/3be1061048ee65e270bb1508877aa050877f38e16233b5e7b09c3fbab8344e35 200
+[debug] [2025-08-25T13:44:09.195Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/3be1061048ee65e270bb1508877aa050877f38e16233b5e7b09c3fbab8344e35 [stream]
+[debug] [2025-08-25T13:44:09.220Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/766c5b033fb30d7b2d9156614377ff761c797f1db31cdc422575df1bf3d51bc6 200
+[debug] [2025-08-25T13:44:09.220Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/766c5b033fb30d7b2d9156614377ff761c797f1db31cdc422575df1bf3d51bc6 [stream]
+[debug] [2025-08-25T13:44:09.325Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/6a03a16fba3009355bf595f29f4f1015a2788ce28fe0732da83aea50b6fd4c46 200
+[debug] [2025-08-25T13:44:09.326Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/6a03a16fba3009355bf595f29f4f1015a2788ce28fe0732da83aea50b6fd4c46 [stream]
+[debug] [2025-08-25T13:44:09.336Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/e169529579886263389f26302127a7120091be06f3085d61ebbc3a69cc3999ab 200
+[debug] [2025-08-25T13:44:09.336Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/e169529579886263389f26302127a7120091be06f3085d61ebbc3a69cc3999ab [stream]
+[debug] [2025-08-25T13:44:09.583Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fa25859d1fd616200575261a7fbda069e5cfbece1000caf3e142f8008e5202a4 200
+[debug] [2025-08-25T13:44:09.583Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/fa25859d1fd616200575261a7fbda069e5cfbece1000caf3e142f8008e5202a4 [stream]
+[debug] [2025-08-25T13:44:09.667Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/c3f4a766604ff7b2ffcb1c3c679363fc2c84f5101fe92abf190f37849385ed8f 200
+[debug] [2025-08-25T13:44:09.668Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/c3f4a766604ff7b2ffcb1c3c679363fc2c84f5101fe92abf190f37849385ed8f [stream]
+[debug] [2025-08-25T13:44:09.701Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/a597a6fd6efdb1bed119de83ebb9c9c465fff499dad92e7798c44d43c09d83fb 200
+[debug] [2025-08-25T13:44:09.701Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/a597a6fd6efdb1bed119de83ebb9c9c465fff499dad92e7798c44d43c09d83fb [stream]
+[debug] [2025-08-25T13:44:09.952Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/c3e7967c3b672ec44cd0498095fb17af824c17ecb9439e098224775906d650cd 200
+[debug] [2025-08-25T13:44:09.953Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/aquafixers-96f89/versions/13909030d55ae045/files/c3e7967c3b672ec44cd0498095fb17af824c17ecb9439e098224775906d650cd [stream]
+[debug] [2025-08-25T13:44:09.954Z] [hosting][upload queue][FINAL] {"max":2387,"min":1318,"avg":1649.904761904762,"active":0,"complete":21,"success":21,"errored":0,"retried":0,"total":21,"elapsed":2393}
+[info] i  hosting: upload complete 
+[info] ✔  hosting[aquafixers-96f89]: file upload complete 
+[debug] [2025-08-25T13:44:09.965Z] [hosting] deploy completed after 3223ms
+[debug] [2025-08-25T13:44:09.966Z] [
+  {
+    "config": {
+      "public": ".",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**",
+        "backend/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "aquafixers-96f89"
+    },
+    "version": "projects/463385848230/sites/aquafixers-96f89/versions/13909030d55ae045"
+  }
+]
+[info] i  hosting[aquafixers-96f89]: finalizing version... 
+[debug] [2025-08-25T13:44:09.972Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:09.972Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:09.974Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/versions/13909030d55ae045 updateMask=status%2Cconfig
+[debug] [2025-08-25T13:44:09.974Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/versions/13909030d55ae045 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2025-08-25T13:44:10.487Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/versions/13909030d55ae045 200
+[debug] [2025-08-25T13:44:10.487Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/versions/13909030d55ae045 {"name":"projects/463385848230/sites/aquafixers-96f89/versions/13909030d55ae045","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-08-25T13:44:05.902162Z","createUser":{"email":"abr.ting@gmail.com"},"finalizeTime":"2025-08-25T13:44:10.511113Z","finalizeUser":{"email":"abr.ting@gmail.com"}}
+[debug] [2025-08-25T13:44:10.487Z] [hosting] finalized version for aquafixers-96f89:[object Object]
+[info] ✔  hosting[aquafixers-96f89]: version finalized 
+[info] i  hosting[aquafixers-96f89]: releasing new version... 
+[debug] [2025-08-25T13:44:10.489Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:10.489Z] Checked if tokens are valid: true, expires at: 1756133041725
+[debug] [2025-08-25T13:44:10.491Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/channels/live/releases versionName=projects%2F463385848230%2Fsites%2Faquafixers-96f89%2Fversions%2F13909030d55ae045
+[debug] [2025-08-25T13:44:10.491Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/channels/live/releases {}
+[debug] [2025-08-25T13:44:11.328Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/channels/live/releases 200
+[debug] [2025-08-25T13:44:11.339Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/aquafixers-96f89/channels/live/releases {"name":"projects/463385848230/sites/aquafixers-96f89/channels/live/releases/1756129450712000","version":{"name":"projects/463385848230/sites/aquafixers-96f89/versions/13909030d55ae045","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-08-25T13:44:05.902162Z","createUser":{"email":"abr.ting@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLqI8p_FCsdo-YTw6Rf5Yfrcoop0R-lSpErh4wNnwRs8tdDj6O_MQ"},"finalizeTime":"2025-08-25T13:44:10.511113Z","finalizeUser":{"email":"abr.ting@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLqI8p_FCsdo-YTw6Rf5Yfrcoop0R-lSpErh4wNnwRs8tdDj6O_MQ"}},"type":"DEPLOY","releaseTime":"2025-08-25T13:44:10.712Z","releaseUser":{"email":"abr.ting@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLqI8p_FCsdo-YTw6Rf5Yfrcoop0R-lSpErh4wNnwRs8tdDj6O_MQ"}}
+[debug] [2025-08-25T13:44:11.339Z] [hosting] release: {"name":"projects/463385848230/sites/aquafixers-96f89/channels/live/releases/1756129450712000","version":{"name":"projects/463385848230/sites/aquafixers-96f89/versions/13909030d55ae045","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-08-25T13:44:05.902162Z","createUser":{"email":"abr.ting@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLqI8p_FCsdo-YTw6Rf5Yfrcoop0R-lSpErh4wNnwRs8tdDj6O_MQ"},"finalizeTime":"2025-08-25T13:44:10.511113Z","finalizeUser":{"email":"abr.ting@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLqI8p_FCsdo-YTw6Rf5Yfrcoop0R-lSpErh4wNnwRs8tdDj6O_MQ"}},"type":"DEPLOY","releaseTime":"2025-08-25T13:44:10.712Z","releaseUser":{"email":"abr.ting@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLqI8p_FCsdo-YTw6Rf5Yfrcoop0R-lSpErh4wNnwRs8tdDj6O_MQ"}}
+[info] ✔  hosting[aquafixers-96f89]: release complete 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/aquafixers-96f89/overview
+[info] Hosting URL: https://aquafixers-96f89.web.app
