@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithCustomToken, signInAnonymously, browserLocalPersistence, browserSessionPersistence, setPersistence } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithCustomToken, signInAnonymously, browserLocalPersistence, browserSessionPersistence, setPersistence, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
 // Global variables for the app and Firebase setup
@@ -20,6 +20,7 @@ const SELANGAU_LON = 112.1897;
 const API_BASE_URL = 'http://localhost:3000/api';
 
 // Initialize Firebase
+console.log("Using Firebase config:", firebaseConfig);
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -1183,6 +1184,8 @@ signInButton.addEventListener('click', async () => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
+            await sendEmailVerification(user);
+
             const profileRef = doc(db, `artifacts/${appId}/users/${user.uid}/profile/main`);
             await setDoc(profileRef, {
                 name: user.email.split('@')[0],
@@ -1191,7 +1194,13 @@ signInButton.addEventListener('click', async () => {
                 language: currentLang,
                 userId: user.uid
             });
-            showNotifier("Account created successfully. You are now signed in.", "success");
+
+            await signOut(auth);
+            showMessageModal("Account Created", "Your account has been created. Please check your email to verify your account before signing in.");
+            isCreatingAccount = false; // switch back to sign in mode
+            signInButton.textContent = translations[currentLang].signInButton;
+            createAccountLink.textContent = translations[currentLang].createAccountLink;
+            welcomeMessage.textContent = translations[currentLang].welcomeMessage;
         } catch (error) {
             console.error("Error creating account:", error);
             authErrorMessage.textContent = `Error: ${error.message}`;
@@ -1551,6 +1560,11 @@ saveChangesButton.addEventListener('click', async () => {
 onAuthStateChanged(auth, async (user) => {
     console.log("Auth state changed. User:", user);
     if (user) {
+        if (!user.emailVerified) {
+            showNotifier("Please verify your email before signing in.", "error");
+            await signOut(auth);
+            return;
+        }
         showMainContentSection();
         const profileRef = doc(db, `artifacts/${appId}/users/${user.uid}/profile/main`);
         let displayName = user.email.split('@')[0];
