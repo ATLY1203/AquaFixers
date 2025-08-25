@@ -4,14 +4,15 @@ import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstat
 
 // Global variables for the app and Firebase setup
 const firebaseConfig = {
-  apiKey: "AIzaSyBDlJw_vduk8859AlbROe2ZC3QHiJ_Effc",
-  authDomain: "synapse-learn.firebaseapp.com",
-  projectId: "synapse-learn",
-  storageBucket: "synapse-learn.firebasestorage.app",
-  messagingSenderId: "959946255674",
-  appId: "1:959946255674:web:81a9fd7b0272abd8a2b403",
-  measurementId: "G-4TT3QY4HL2"
+  apiKey: "AIzaSyAf-B6G07KXX5jn9A5TTBc_Wvukx4EGkOM",
+  authDomain: "aquafixers-96f89.firebaseapp.com",
+  projectId: "aquafixers-96f89",
+  storageBucket: "aquafixers-96f89.firebasestorage.app",
+  messagingSenderId: "463385848230",
+  appId: "1:463385848230:web:6fe19a857fa67764d54767",
+  measurementId: "G-0PX1043T8X"
 };
+
 const appId = 'c_c8b098002f92001e_aquafixers-weather-app-687';
 const SELANGAU_LAT = 2.9221;
 const SELANGAU_LON = 112.1897;

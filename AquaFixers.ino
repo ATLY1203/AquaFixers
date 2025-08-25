@@ -16,9 +16,9 @@ const char* ssid = "Reya02";
 const char* password = "0138095221@tmk";
 
 // -- Firebase Project Credentials
-#define API_KEY "AIzaSyBDlJw_vduk8859AlbROe2ZC3QHiJ_Effc"
-#define FIREBASE_PROJECT_ID "synapse-learn"
-#define DATABASE_URL "https://synapse-learn-default-rtdb.firebaseio.com/"
+#define API_KEY "AIzaSyAf-B6G07KXX5jn9A5TTBc_Wvukx4EGkOM"
+#define FIREBASE_PROJECT_ID "aquafixers-96f89"
+#define DATABASE_URL "https://aquafixers-96f89-default-rtdb.firebaseio.com/"
 
 // -- Firebase Objects
 FirebaseData fbdo;
