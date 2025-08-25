@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaFixers | Weather App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="w-full max-w-2xl text-white rounded-3xl shadow-2xl p-8">
+        <div class="flex items-center mb-6">
+            <i class="fas fa-water text-3xl mr-4 opacity-80"></i>
+            <h1 class="text-3xl font-bold opacity-90">AquaFixers</h1>
+        </div>
+
+        <!-- Auth Section -->
+        <div id="auth-section" class="flex flex-col items-center">
+            <div id="auth-form-container" class="w-full max-w-sm flex flex-col items-center space-y-6">
+                <h2 id="welcome-message" class="text-2xl font-semibold text-center mb-4"></h2>
+
+                <input id="email-input" type="email" placeholder="Email" class="w-full p-4 bg-white bg-opacity-20 text-white rounded-xl placeholder-gray-200 focus:ring-2 focus:ring-white transition duration-300">
+                <input id="password-input" type="password" placeholder="Password" class="w-full p-4 bg-white bg-opacity-20 text-white rounded-xl placeholder-gray-200 focus:ring-2 focus:ring-white transition duration-300">
+
+                <!-- Remember me checkbox -->
+                <div class="flex items-center self-start text-sm">
+                    <input type="checkbox" id="remember-me-checkbox" class="h-4 w-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <label id="remember-me-label" for="remember-me-checkbox" class="ml-2 text-white"></label>
+                </div>
+
+                <button id="sign-in-button" class="w-full p-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold rounded-xl hover:from-blue-600 hover:to-blue-800 transition duration-300 shadow-lg hover:shadow-xl focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"></button>
+                <p class="text-sm text-center text-gray-200 mt-2">
+                    <span id="create-account-text"></span> <a href="#" id="create-account-link" class="text-white font-semibold hover:underline"></a>
+                </p>
+                <div id="auth-error-message" class="text-yellow-200 text-center text-sm hidden"></div>
+            </div>
+        </div>
+
+        <!-- Main App Content (Tabs) -->
+        <div id="main-content-section" class="hidden">
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center space-x-2 bg-white bg-opacity-10 p-1 rounded-xl">
+                    <button id="current-weather-tab" class="tab-button active px-4 py-2 rounded-lg text-sm text-white focus:outline-none">Current Weather</button>
+                    <button id="history-trends-tab" class="tab-button px-4 py-2 rounded-lg text-sm text-white focus:outline-none">History & Trends</button>
+                    <button id="camera-sensor-tab" class="tab-button px-4 py-2 rounded-lg text-sm text-white focus:outline-none">Sensor Data</button>
+                </div>
+
+                <!-- Profile Dropdown Menu -->
+                <div id="profile-menu-container" class="relative">
+                    <img id="main-profile-picture" src="" alt="Profile" class="w-8 h-8 rounded-full object-cover mr-2 hidden">
+                    <button class="flex items-center text-white text-3xl opacity-80 hover:opacity-100 transition duration-300">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div id="profile-dropdown" class="profile-dropdown-menu absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded-lg shadow-lg py-2 z-10 hidden">
+                        <a href="#" id="profile-link" class="block px-4 py-2 hover:bg-gray-100 transition duration-150">
+                            <i class="fas fa-user-alt mr-2"></i> <span id="profile-text"></span>
+                        </a>
+                        <a href="#" id="language-link" class="block px-4 py-2 hover:bg-gray-100 transition duration-150">
+                            <i class="fas fa-globe mr-2"></i> <span id="language-text"></span>
+                        </a>
+                        <div class="border-t border-gray-200 my-1"></div>
+                        <button id="dropdown-sign-out-button" class="w-full text-left block px-4 py-2 hover:bg-gray-100 text-red-500 transition duration-150">
+                            <i class="fas fa-sign-out-alt mr-2"></i> <span id="sign-out-text"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weather Section -->
+            <div id="weather-section">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 id="weather-forecast-title" class="text-2xl font-bold"></h2>
+                    <button id="refresh-weather-btn" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition duration-300 flex items-center">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        Refresh
+                    </button>
+                </div>
+
+                <div id="initial-message-section" class="text-center mt-8">
+                    <p id="initial-message" class="text-lg text-gray-200"></p>
+                    <div id="weather-loading-spinner" class="loading-spinner hidden"></div>
+                </div>
+
+                <!-- Main Weather Card -->
+                <div id="weather-display" class="bg-white bg-opacity-20 p-6 rounded-2xl hidden">
+                    <div id="main-weather-info" class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 id="location-name" class="text-3xl font-bold"></h3>
+                            <p id="current-time" class="text-sm opacity-80 mb-2"></p>
+                            <p id="current-conditions" class="font-semibold"></p>
+                        </div>
+                        <div class="text-right">
+                            <span id="weather-percentage" class="text-6xl font-extrabold block"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 text-center mt-4">
+                        <div class="flex flex-col items-center justify-center p-3 bg-white bg-opacity-10 rounded-xl">
+                            <i class="fas fa-tint text-xl opacity-80 mb-1"></i>
+                            <p id="current-humidity" class="font-bold text-lg"></p>
+                            <p id="humidity-text" class="text-xs opacity-80"></p>
+                        </div>
+                        <div class="flex flex-col items-center justify-center p-3 bg-white bg-opacity-10 rounded-xl">
+                            <i class="fas fa-wind text-xl opacity-80 mb-1"></i>
+                            <p id="current-wind" class="font-bold text-lg"></p>
+                            <p id="wind-text" class="text-xs opacity-80"></p>
+                        </div>
+                    </div>
+
+                    <!-- AI Rain Probability Section -->
+                     <div class="mt-6 p-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-opacity-30 rounded-xl border border-blue-400 border-opacity-30">
+                         <div class="flex items-center justify-between mb-3">
+                             <h4 class="text-lg font-bold text-white flex items-center">
+                                 <i class="fas fa-brain mr-2 text-yellow-300"></i>
+                                 <span id="ai-rain-title">AI Rain Prediction</span>
+                             </h4>
+                             <button id="calculate-rain-probability" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold rounded-lg transition duration-300 flex items-center">
+                                 <i class="fas fa-calculator mr-1"></i>
+                                 <span id="calculate-button-text">Calculate</span>
+                             </button>
+                         </div>
+                         <div id="rain-probability-result" class="hidden">
+                             <div class="text-center">
+                                 <div class="text-3xl font-bold text-white mb-2">
+                                     <span id="rain-probability-percentage">0</span>%
+                                 </div>
+                                 <p id="rain-probability-description" class="text-sm text-blue-100 mb-3"></p>
+                                 <div class="w-full bg-gray-700 rounded-full h-2">
+                                     <div id="rain-probability-bar" class="bg-gradient-to-r from-blue-400 to-purple-500 h-2 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                                 </div>
+                                 <p id="ai-reasoning" class="text-xs text-blue-200 mt-2 italic"></p>
+                             </div>
+                         </div>
+                         <div id="rain-probability-loading" class="hidden text-center">
+                             <div class="loading-spinner mx-auto"></div>
+                             <p class="text-sm text-blue-100 mt-2">AI is analyzing weather patterns...</p>
+                         </div>
+                     </div>
+
+                     <!-- AI Weather-Based Suggestions Section -->
+                     <div class="mt-6 p-4 bg-gradient-to-r from-green-500 to-teal-600 bg-opacity-30 rounded-xl border border-green-400 border-opacity-30">
+                         <div class="flex items-center justify-between mb-3">
+                             <h4 class="text-lg font-bold text-white flex items-center">
+                                 <i class="fas fa-lightbulb mr-2 text-yellow-300"></i>
+                                 <span id="ai-suggestions-title">AI Lifestyle Tips</span>
+                             </h4>
+                             <button id="get-ai-suggestions" class="px-3 py-1 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold rounded-lg transition duration-300 flex items-center">
+                                 <i class="fas fa-magic mr-1"></i>
+                                 <span id="suggestions-button-text">Get Tips</span>
+                             </button>
+                         </div>
+                         <div id="ai-suggestions-result" class="hidden">
+                             <div class="text-center">
+                                 <div class="flex items-center justify-center mb-3">
+                                     <i id="suggestion-icon" class="text-2xl text-yellow-300 mr-2"></i>
+                                     <p id="ai-suggestion-text" class="text-sm text-green-100 font-medium"></p>
+                                 </div>
+                                 <div class="w-full bg-gray-700 rounded-full h-2">
+                                     <div id="suggestions-progress-bar" class="bg-gradient-to-r from-green-400 to-teal-500 h-2 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div id="ai-suggestions-loading" class="hidden text-center">
+                             <div class="loading-spinner mx-auto"></div>
+                             <p class="text-sm text-green-100 mt-2">AI is generating personalized tips...</p>
+                         </div>
+                     </div>
+
+                    <!-- Daily forecast -->
+                    <div id="daily-forecast-container" class="mt-8">
+                        <h4 class="text-lg font-bold mb-4">5-Day Forecast</h4>
+                        <div id="daily-forecast" class="flex overflow-x-auto space-x-4 pb-2">
+                            <!-- Daily forecast items will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Section -->
+            <div id="history-section" class="hidden">
+                <h2 id="history-trends-title" class="text-2xl font-bold mb-4"></h2>
+                <div id="history-loading-spinner" class="loading-spinner hidden mt-8"></div>
+                <div id="history-chart-container" class="bg-white bg-opacity-20 p-6 rounded-2xl hidden">
+                    <canvas id="historyChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Sensor Data Section -->
+            <div id="camera-sensor-section" class="hidden">
+                <h2 class="text-2xl font-bold mb-4">Sensor Data</h2>
+                <div class="flex justify-center">
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-lg font-bold mb-2 text-center">Live Water Levels</h3>
+                        <div class="bg-white bg-opacity-20 p-6 rounded-2xl">
+                            <div class="flex justify-between items-center mb-4">
+                                <div>
+                                    <p class="text-lg font-semibold">Rainwater Tank Level</p>
+                                    <p id="rainwater-level" class="text-3xl font-bold">--</p>
+                                </div>
+                                <i class="fas fa-tint text-3xl text-blue-300"></i>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-lg font-semibold">River Water Tank Level</p>
+                                    <p id="river-water-level" class="text-3xl font-bold">--</p>
+                                </div>
+                                <i class="fas fa-water text-3xl text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="profile-section" class="hidden">
+            <h2 id="profile-title" class="text-3xl font-bold text-white mb-6"></h2>
+
+            <div class="flex flex-col items-center mb-8">
+                <div class="relative">
+                    <div id="profile-picture-container" class="w-24 h-24 rounded-full bg-white bg-opacity-20 flex items-center justify-center text-5xl text-white overflow-hidden">
+                        <img id="profile-picture" src="" alt="Profile Picture" class="w-full h-full object-cover hidden">
+                        <i id="profile-picture-icon" class="fas fa-user"></i>
+                    </div>
+                    <label for="profile-picture-input" class="absolute bottom-0 right-0 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 cursor-pointer transition duration-300 shadow-lg">
+                        <i class="fas fa-camera text-sm"></i>
+                    </label>
+                    <input type="file" id="profile-picture-input" accept="image/*" class="hidden">
+                </div>
+                <p id="profile-picture-note" class="text-xs text-gray-300 mt-2"></p>
+            </div>
+
+            <div class="space-y-6">
+                <div>
+                    <label id="profile-name-label" for="profile-name" class="block text-gray-200 text-sm font-semibold mb-2"></label>
+                    <input type="text" id="profile-name-input" class="w-full p-4 bg-white bg-opacity-20 text-white rounded-xl placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-white transition duration-300">
+                </div>
+                <div>
+                    <label id="profile-email-label" for="profile-email" class="block text-gray-200 text-sm font-semibold mb-2"></label>
+                    <input type="email" id="profile-email-input" class="w-full p-4 bg-white bg-opacity-20 text-white rounded-xl placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-white transition duration-300" readonly>
+                </div>
+                <div>
+                    <label id="profile-phone-label" for="profile-phone" class="block text-gray-200 text-sm font-semibold mb-2"></label>
+                    <input type="tel" id="profile-phone-input" class="w-full p-4 bg-white bg-opacity-20 text-white rounded-xl placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-white transition duration-300">
+                </div>
+            </div>
+
+            <div class="mt-8 flex space-x-4">
+                <button id="save-changes-button" class="flex-1 p-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold rounded-xl hover:from-blue-600 hover:to-blue-800 transition duration-300 shadow-lg hover:shadow-xl focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50"></button>
+                <button id="back-button" class="flex-1 p-4 bg-gray-600 text-white font-bold rounded-xl hover:bg-gray-700 transition duration-300 shadow-lg"></button>
+            </div>
+
+            <p id="profile-message" class="text-center mt-4 text-sm text-yellow-200 hidden"></p>
+        </div>
+    </div>
+
+    <!-- Language Selection Modal -->
+    <div id="language-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3 class="text-xl font-bold mb-4 text-gray-800" id="language-modal-title"></h3>
+            <div class="space-y-4">
+                <button id="lang-en" class="w-full p-3 font-semibold rounded-xl text-blue-600 bg-gray-100 hover:bg-gray-200 transition duration-300">English</button>
+                <button id="lang-ms" class="w-full p-3 font-semibold rounded-xl text-blue-600 bg-gray-100 hover:bg-gray-200 transition duration-300">Bahasa Melayu</button>
+                <button id="lang-zh" class="w-full p-3 font-semibold rounded-xl text-blue-600 bg-gray-100 hover:bg-gray-200 transition duration-300">中文 (Chinese)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Alert/Message Modal -->
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <span id="message-modal-close" class="modal-close">&times;</span>
+            <h3 class="text-xl font-bold mb-4 text-gray-800" id="message-modal-title"></h3>
+            <p id="message-modal-text" class="text-gray-600 mb-4"></p>
+            <button id="message-modal-ok-button" class="w-full p-3 font-semibold rounded-xl text-blue-600 bg-gray-100 hover:bg-gray-200 transition duration-300">OK</button>
+        </div>
+    </div>
+
+    <!-- AquaBot Chat Widget -->
+    <div id="aquabot-widget" class="fixed bottom-6 right-6 z-50">
+        <!-- Chat Toggle Button -->
+        <button id="aquabot-toggle" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-16 h-16 shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center justify-center text-2xl">
+            <i class="fas fa-robot"></i>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="aquabot-chat" class="absolute bottom-20 right-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 hidden">
+            <!-- Chat Header -->
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-t-2xl flex items-center justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-robot text-xl mr-2"></i>
+                    <h3 class="font-bold">AquaBot</h3>
+                </div>
+                <button id="aquabot-close" class="text-white hover:text-gray-200 transition duration-200">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="aquabot-messages" class="h-80 overflow-y-auto p-4 space-y-3">
+                <!-- Welcome message -->
+                <div class="flex items-start space-x-2">
+                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                        A
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+                        <p class="text-sm text-gray-800">Hi! I'm AquaBot, your weather assistant. Ask me anything about the weather or daily activities!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="p-4 border-t border-gray-200">
+                <div class="flex space-x-2">
+                    <input type="text" id="aquabot-input" placeholder="Ask about weather..." class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                    <button id="aquabot-send" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200 text-sm">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Global Progress Bar -->
+    <div id="global-progress-bar" class="fixed top-0 left-0 w-full h-1 bg-blue-500 z-50 hidden"></div>
+
+    <!-- Global Notifier -->
+    <div id="global-notifier" class="fixed top-4 right-4 p-4 rounded-lg shadow-lg text-white z-50 hidden"></div>
+</body>
+<script src="script.js" type="module"></script>
